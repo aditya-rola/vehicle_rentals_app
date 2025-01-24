@@ -1,0 +1,44 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<div class="container my-5">
+  <div class="row">
+    <!-- Vehicle Image -->
+    <div class="col-md-4">
+      <div class="card">
+        <img src="{{ vehicle_image }}" class="card-img-top img-fluid" alt="Vehicle Image">
+      </div>
+    </div>
+
+    <!-- Vehicle Details -->
+    <div class="col-md-8">
+      <h1>{{ title }}</h1>
+
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th>Model</th>
+            <td>{{ model }}</td>
+          </tr>
+          <tr>
+            <th>Year</th>
+            <td>{{ year }}</td>
+          </tr>
+          <tr>
+            <th>Make</th>
+            <td>{{ make }}</td>
+          </tr>
+          <tr>
+            <th>Color</th>
+            <td>{{ color }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="mt-4">
+        <a href="/contact" class="btn btn-primary">Contact Us for More Details</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

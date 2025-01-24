@@ -1,0 +1,12 @@
+<div class="card shadow-sm border-light rounded">
+  <div class="card-body">
+    <!-- Attractive Link Styled as a Button -->
+    <a
+      href="{{ frappe.utils.get_url(doc.route) }}"
+      class="btn btn-danger btn-lg btn-block text-white"
+    >
+      <i class="fas fa-car"></i> {{ doc.title or doc.name }}
+    </a>
+  </div>
+</div>
+<!-- this is a sample default list template -->

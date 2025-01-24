@@ -1,0 +1,119 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "DR-.#####",
+ "creation": "2025-01-12 18:24:06.879711",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "profile_img",
+  "section_break_alez",
+  "full_name",
+  "section_break_wqce",
+  "f_name",
+  "column_break_rpnz",
+  "l_name",
+  "section_break_hiuu",
+  "phone_num",
+  "lic_number",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "allow_on_submit": 1,
+   "fieldname": "profile_img",
+   "fieldtype": "Attach Image",
+   "label": "Profile Image"
+  },
+  {
+   "fieldname": "section_break_wqce",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "f_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_rpnz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "l_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "section_break_hiuu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "phone_num",
+   "fieldtype": "Phone",
+   "in_list_view": 1,
+   "label": "Phone No.",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lic_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Licence Number",
+   "length": 15,
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Driver",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_alez",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Full Name",
+   "options": "f\"{doc.f_name} {doc.l_name}\""
+  }
+ ],
+ "image_field": "profile_img",
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-01-13 12:40:40.183756",
+ "modified_by": "Administrator",
+ "module": "Rentals",
+ "name": "Driver",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

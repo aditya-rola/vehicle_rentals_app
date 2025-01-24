@@ -1,0 +1,304 @@
+{% extends base_template_path %} 
+
+{% block style %}
+<style>
+  /* General Reset */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: "Arial", sans-serif;
+    background-color: #f8f9fa;
+  }
+
+  .hero-section {
+    background: url("https://via.placeholder.com/1920x700") no-repeat center
+      center;
+    background-size: cover;
+    color: white;
+    padding: 120px 0;
+    text-align: center;
+  }
+
+  .hero-section h1 {
+    font-size: 4rem;
+    font-weight: bold;
+  }
+
+  .hero-section p {
+    font-size: 1.2rem;
+  }
+
+  .services-section {
+    background-color: #fff;
+    padding: 80px 0;
+  }
+
+  .services-section h2 {
+    font-size: 2.5rem;
+    color: #343a40;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .service-card {
+    text-align: center;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+
+  .service-card h4 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #343a40;
+  }
+
+  .service-card p {
+    color: #6c757d;
+  }
+
+  .features-section {
+    padding: 80px 0;
+    background-color: #f1f1f1;
+  }
+
+  .features-section h2 {
+    font-size: 2.5rem;
+    color: #343a40;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .feature-card {
+    text-align: center;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+
+  .feature-card h4 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #343a40;
+  }
+
+  .cta-section {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 60px 0;
+  }
+
+  .cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  .cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+
+  .cta-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-decoration: none;
+  }
+
+  .cta-btn:hover {
+    background-color: #0056b3;
+  }
+
+  .footer {
+    background-color: #343a40;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+  }
+
+  .footer a {
+    color: #f8f9fa;
+    text-decoration: none;
+  }
+
+  .navbar-nav .nav-link {
+    color: #343a40 !important;
+  }
+</style>
+{% endblock style %} 
+
+
+{%- block navbar -%}
+  {% if frappe.session.user == 'Guest' %}
+    <!-- Navbar (Optional for Navigation) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Frappe</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          {% set current_path = frappe.request.path %}
+          <li class="nav-item ">
+            <a class="nav-link" href="#">{{current_path}}</a>
+          </li>
+          <li class="nav-item {% if current_path == '/' %}active{% endif %}">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          
+          <li class="nav-item {% if current_path == '/custom_about' %}active{% endif %}">
+            <a class="nav-link" href="custom_about">About Us</a>
+          </li>
+          
+          <li class="nav-item {% if current_path == '/services' %}active{% endif %}">
+            <a class="nav-link" href="/services">Services</a>
+          </li>
+          
+          <li class="nav-item {% if current_path == '/contact' %}active{% endif %}">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  {% else %}
+    {{ web_block(
+        navbar_template or 'Standard Navbar',
+        values=_context_dict,
+        add_container=0,
+        add_top_padding=0,
+        add_bottom_padding=0,
+    ) }}
+  {% endif %}
+{%- endblock -%}
+
+
+
+{% block content %}
+<section class="hero-section">
+  <div class="container">
+    <h1>Welcome to Frappe</h1>
+    <a href="#services" class="btn btn-primary btn-lg mt-4">Explore Our Services</a>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="services-section">
+  <div class="container">
+    <h2>Our Services</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="service-card">
+          <img
+            src="https://via.placeholder.com/150"
+            alt="Service 1"
+            class="img-fluid"
+          />
+          <h4>Software Development</h4>
+          <p>
+            We provide tailored software solutions that fit your specific
+            business needs.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-card">
+          <img
+            src="https://via.placeholder.com/150"
+            alt="Service 2"
+            class="img-fluid"
+          />
+          <h4>Cloud Solutions</h4>
+          <p>
+            Leverage the power of the cloud to improve scalability and
+            flexibility.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-card">
+          <img
+            src="https://via.placeholder.com/150"
+            alt="Service 3"
+            class="img-fluid"
+          />
+          <h4>Automation Tools</h4>
+          <p>
+            Increase your productivity with our automation tools tailored to
+            your business.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+  <div class="container">
+    <h2>Key Features</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h4>Fast Performance</h4>
+          <p>
+            Our solutions are optimized for speed and efficiency, delivering
+            top-tier performance.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h4>Security First</h4>
+          <p>
+            We ensure that your data and business operations are protected at
+            all times.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h4>Seamless Integration</h4>
+          <p>
+            Integrate with your existing systems smoothly and efficiently for a
+            unified workflow.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call-to-Action Section -->
+<section class="cta-section">
+  <h2>Ready to take your business to the next level?</h2>
+  <p>
+    Get in touch with us today to discuss how we can help you achieve your
+    goals.
+  </p>
+  <a href="#contact" class="cta-btn">Contact Us</a>
+</section>
+{% endblock content %} 
+
+{% block footer %}
+<section class="footer">
+  <p>&copy; 2025 Frappe | All Rights Reserved</p>
+  <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+</section>
+{% endblock footer %}
