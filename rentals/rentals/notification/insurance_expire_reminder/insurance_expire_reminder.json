@@ -1,0 +1,29 @@
+{
+ "attach_print": 0,
+ "channel": "System Notification",
+ "creation": "2025-01-26 13:49:06.284525",
+ "date_changed": "insurance_expiry",
+ "days_in_advance": 3,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Vehicle",
+ "enabled": 1,
+ "event": "Days Before",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "# Reminder: Insurance Expiry in 3 Days\n\nDear Manager,\n\nWe are writing to remind you that your insurance policy with us is expiring in just **3 days** on **{{doc.insurance_expiry}}**. To avoid any gaps in coverage, please ensure that you renew your policy before the expiration date.\n\nIf you need assistance or have any questions about your renewal options, don't hesitate to reach out to us.\n\n[**Renew Your Insurance**]( [renewal link] )\n\n---\n*This is an automated message. If you have any questions, please contact our support team.*\n",
+ "message_type": "Markdown",
+ "modified": "2025-01-26 13:49:06.284525",
+ "modified_by": "Administrator",
+ "module": "Rentals",
+ "name": "insurance expire reminder",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_role": "System Manager"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "subject": "Insurance for {{ doc.title }} expiring in 3 days!!"
+}
